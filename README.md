@@ -1,36 +1,34 @@
-# markei-functional
+# Node.js - Ports & Adapters boilerplate
 
-[![Test](http:&#x2F;&#x2F;&#x2F;actions&#x2F;workflows&#x2F;build.yml&#x2F;badge.svg)](http:&#x2F;&#x2F;&#x2F;actions&#x2F;workflows&#x2F;build.yml)
+Node.js, TypeScript, fp-ts
 
-[API Docs](http://)
+## NPM Scripts
 
----
+- **yarn start**: Run production server
+- **yarn dev**: Run dev server
+- **yarn test**: Run unit and integration tests once (great to be used in CI)
+- **yarn test:watch**: Run unit tests in watch mode
+- **yarn test:integration**: Run integration tests once
+- **yarn test:integration:watch**: Run integration tests in watch mode
+- **yarn lint**: Run linter
+- **yarn lint:fix**: Fix lint errors
+- **yarn type-check**: TS typechecking
+- **yarn prepare**: Not suposed to be manually used. It's just to configure husky.
+- **yarn build**: Generates production build
 
-<!-- AUTO-GENERATED-CONTENT:START (TOC) -->
+## Important usage information
 
-- [Install](#install)
-- [Example](#example)
+### Environment Variables
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+You can use env vars by creating a `.env` file on the root of the project.
+To document all used env vars, and get autocomplete when use `process.env.YOU_VAR`,
+just put all your env vars on file `environment.d.ts`.
 
-## Install
+### Global import
 
-Uses `fp-ts` as a peer dependency.
+All files and dirs inside `src` directory can be imported using `@/`.
+Prefer using this way over local import (`../../`).
 
-```bash
-yarn add fp-ts markei-functional
-```
+## License
 
-or
-
-```bash
-npm install fp-ts markei-functional
-```
-
-## Example
-
-```ts
-import * as Lib from 'markei-functional'
-
-// write an example...
-```
+MIT

@@ -1,5 +1,14 @@
+'use strict'
+
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
-  testMatch: ['<rootDir>/tests/**/*.ts'],
+  globals: {
+    'ts-jest': {
+      isolatedModules: true,
+    },
+  },
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1',
+  },
 }
