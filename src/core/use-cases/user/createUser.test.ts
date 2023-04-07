@@ -2,10 +2,10 @@ import * as TE from 'fp-ts/TaskEither'
 import { pipe } from 'fp-ts/function'
 
 import { createUser, OutsideCreateUser } from './createUser'
-import { User } from '@/core/types/user'
+import { User, InputUser } from '@/core/types/user'
 
-const UserOK: OutsideCreateUser<User> = async (info: User) => {
-  return info
+const UserOK: OutsideCreateUser<User> = async ({ username }: InputUser) => {
+  return { username, token: '#12345' }
 }
 
 const data: User = {
