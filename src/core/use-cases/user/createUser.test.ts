@@ -1,4 +1,4 @@
-import * as TE from 'fp-ts/TaskEither'
+import { map } from 'fp-ts/TaskEither'
 import { pipe } from 'fp-ts/function'
 import { createUser, OutsideCreateUser } from './createUser'
 import { User, InputUser } from '@/core/types/user'
@@ -21,6 +21,6 @@ it('Deve retornar o nome do usuário e o token dele', async () => {
   return pipe(
     data,
     createUser(UserOK),
-    TE.map((result) => expect(result).toStrictEqual(awantedUser)),
+    map((result) => expect(result).toStrictEqual(awantedUser)),
   )()
 })
