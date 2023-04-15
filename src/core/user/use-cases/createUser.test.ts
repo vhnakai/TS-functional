@@ -1,6 +1,6 @@
 import { pipe } from 'fp-ts/function'
 import { createUser, OutsideCreateUser } from './createUser'
-import { User, InputUser } from '@/core/types/user'
+import { User, InputUser } from '@/core/user/types/user'
 import { mapAll, unsafeUsername } from '@/config/tests/fixtures'
 
 const UserOK: OutsideCreateUser<User> = async ({ username }: InputUser) => {

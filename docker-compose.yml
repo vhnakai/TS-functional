@@ -10,7 +10,7 @@ services:
       dockerfile: ./Dockerfile
     command: npm run start:debug
     ports:
-      - 50051:50051
+      - ${PORT}:50051
     networks:
       - nodejs-network
     volumes:
@@ -19,20 +19,22 @@ services:
     restart: unless-stopped
     environment:
       REDIS_HOST: db
-      REDIS_PORT: 6379
+      REDIS_PORT: ${DB_PORT}
       REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    env_file:
+      - .env
     links:
       - db
   prod:
-    container_name: auth_service_prod
-    image: auth-service-prod:1.0.0
+    container_name: markei_prod
+    image: markei-prod:1.0.0
     build:
       context: .
       target: production
       dockerfile: ./Dockerfile
     command: npm run start:prod
     ports:
-      - 50051:50051
+      -  ${PORT}:50051
     networks:
       - nodejs-network
     volumes:
@@ -41,8 +43,10 @@ services:
     restart: unless-stopped
     environment:
       REDIS_HOST: db
-      REDIS_PORT: 6379
+      REDIS_PORT: ${DB_PORT}
       REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    env_file:
+      - .env
     links:
       - db
   db:
@@ -50,6 +54,8 @@ services:
     restart: always
     ports:
       - '6379:6379'
+    env_file:
+      - .env
     command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     volumes:
       - db:/data

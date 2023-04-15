@@ -1,5 +1,5 @@
 import { TypeOf, string, type } from 'io-ts'
-import { usernameCodec } from './scalar'
+import { usernameCodec } from './username'
 
 // Expectativa de Um objeto User
 export const userCodec = type({

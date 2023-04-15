@@ -1,5 +1,5 @@
 
-import { Username } from '@/core/types/scalar/username'
+import { Username } from '@/core/user/types/username'
 import { TaskEither, map, mapLeft } from 'fp-ts/lib/TaskEither'
 import { pipe } from 'fp-ts/lib/function'
 
