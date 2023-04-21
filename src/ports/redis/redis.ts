@@ -4,7 +4,4 @@ import { createClient } from 'redis'
 const url = process.env.REDIS_URL
 
 /* create and open the Redis OM Client */
-const client = createClient({ url })
-
-console.log('Redis OM Client is connected')
-export default client
+export const redis = createClient({ url })
